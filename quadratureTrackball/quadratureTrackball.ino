@@ -6,7 +6,7 @@
 // Usage:
 //   1. Connect the Arduino pins to the trackball as per the indications below at "Arduino pins"
 //   2. Set the resoltion to either (1) or (2); this will determine how much trackball roation is needed 
-//      to increment the counters. At rsoluton 2, the counters increment twice as fast. (It is possible
+//      to increment the counters. At resoluton 2, the counters increment twice as fast. (It is possible
 //      to get 4x resolution as well, but that is left as an exercise ;-). Set it in the code at "RESOLUTION"
 //   3. Upload the code to an Arduino - any type of Arduino should work, but this has only been tested
 //      on an Uno.
@@ -46,7 +46,7 @@ int pins[] = {blue,green,yellow,white};
 
 void x11(){
   // the interrupt handler for x1, resolution=1x
-  // when x1 is RISING, then check the value of x2 to determinen the direction of rotation
+  // when x1 is RISING, then check the value of x2 to determine the direction of rotation
   // if x2 is HIGH, then rotation is negative, otherwise it is positive
   xCount += digitalRead(x2) ? -1 : 1;  
 }
