@@ -23,10 +23,10 @@
 #define RESOLUTION (1)
 
 // these will store the number of ticks in x,y, and the last values too, for display purposes
-int xCount=0,
-    lxCount=0,
-    yCount=0,
-    lyCount=0;
+volatile int xCount=0,
+             lxCount=0,
+             yCount=0,
+             lyCount=0;
 
 // Arduino pins to be wired for GEC PLESSY KB34-400 trackball
 int blue   = 2, // x1
