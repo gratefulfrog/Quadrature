@@ -29,19 +29,19 @@ volatile int xCount=0,
              lyCount=0;
 
 // Arduino pins to be wired for GEC PLESSY KB34-400 trackball
-int blue   = 2, // x1
-    green  = 3, // y1
-    yellow = 4, // x2
-    white  = 5; // y2
+const int blue   = 2, // x1
+          green  = 3, // y1
+          yellow = 4, // x2
+          white  = 5; // y2
 
 // these are to fit with the algorithms, just for cosmetic pleasure
-int x1 = blue,
-    x2 = yellow,
-    y1 = green,
-    y2 = white;
+const int x1 = blue,
+          x2 = yellow,
+          y1 = green,
+          y2 = white;
 
 // vector of pins to automate initiation.
-int pins[] = {blue,green,yellow,white};
+const int pins[] = {blue,green,yellow,white};
 
 
 void x11(){
@@ -62,16 +62,16 @@ void x12(){
   // when x1 is either RISING OR FALLING, check both x1 and x2 values
   // if both are HIGH or both are LOW, then rotation is negative,
   // otherwise rotation is positive
-  int value[][2] = {{-1 ,1}, // (0,0) and (0,1)
-                    {1,-1}}; // (1,0) and (1,1)
+  const static int value[][2] = {{-1 ,1},  // (0,0) and (0,1)
+                                 {1, -1}}; // (1,0) and (1,1)
   xCount += value[digitalRead(x1)][digitalRead(x2)];
 }
 
 void y12(){
   // the interrupt handler for y1, resolution=2x
   // same logic as x direction handler
-  int value[][2] = {{-1 ,1}, // (0,0) and (0,1)
-                    {1,-1}}; // (1,0) and (1,1)
+  const static int value[][2] = {{-1 ,1},  // (0,0) and (0,1)
+                                 {1, -1}}; // (1,0) and (1,1)
   yCount += value[digitalRead(y1)][digitalRead(y2)];
 }
 
